@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="box">
+    <button type="button" class="get-token">get token</button>
+    <button type="button" class="send-token">send token</button>
+  </div>
+  <script>
+    function $(ele) {
+      return document.querySelector(ele)
+    }
+    const get_token = $('.get-token')
+    const send_token = $('.send-token')
+
+    let token = '';
+
+    let options = {
+        credentials: true,
+        method: 'POST',
+        // mode: "cors",
+        mode: "cors-with-forced-preflight",
+        headers: {
+          "Accept": "application/json, text/plain, */*",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "x-access-token": token
+        },
+        body: `x-access-token=${token}`
+      }
+
+    function getToken (e) {
+      fetch('http://localhost:3000/token', options).then(response => response.json()).then(data => {console.log(data); if (!!data && !!data.token) {
+        console.log(222)
+       options.headers['x-access-token'] = options.body = `x-access-token=${data.token}`
+      } }).catch( err => console.log('request error >>>', err))
+    }
+
+    function sendToken (e) {
+
+      console.log(options)
+      fetch('http://localhost:3000', options).then(response => response.json()).then(data => console.log(data)).catch( err => console.log('request error >>>', err))
+    }
+
+    get_token.addEventListener('click', getToken)
+    send_token.addEventListener('click', sendToken)
+  </script>
+</body>
+
+</html>

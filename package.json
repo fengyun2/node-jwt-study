@@ -1,0 +1,24 @@
+{
+  "name": "node-jwt-study",
+  "version": "1.0.0",
+  "description": "http请求凭证",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --harmony-async-await --allow-natives-syntax app.js"
+  },
+  "keywords": ["node", "jwt"],
+  "author": "ly",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "jwt-simple": "^0.5.1",
+    "method-override": "^2.3.7",
+    "moment": "^2.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
