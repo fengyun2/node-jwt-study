@@ -15,7 +15,7 @@
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "jwt-simple": "^0.5.1",
-    "method-override": "^2.3.7",
+    "method-override": "^3.0.0",
     "moment": "^2.16.0"
   },
   "devDependencies": {
